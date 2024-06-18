@@ -1,8 +1,8 @@
 apiVersion: workload.nephio.org/v1alpha1
 kind: NFDeployment
 metadata: # kpt-merge: example/cuup-example
-  name: cuup-example
-  namespace: example
+  name: cuup-edge
+  namespace: oai-ran-cuup
   annotations:
     internal.kpt.dev/upstream-identifier: 'workload.nephio.org|NFDeployment|example|cuup-example'
 spec:
