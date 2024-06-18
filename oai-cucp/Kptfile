@@ -1,0 +1,38 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata: # kpt-merge: /oai-cucp
+  name: oai-cucp
+  annotations:
+    config.kubernetes.io/local-config: "true"
+    internal.kpt.dev/upstream-identifier: 'kpt.dev|Kptfile|default|oai-cucp'
+upstream:
+  type: git
+  git:
+    repo: https://github.com/infinitydon/nephio-aws-packages.git
+    directory: oai-cucp-package
+    ref: main
+upstreamLock:
+  type: git
+  git:
+    repo: https://github.com/infinitydon/nephio-aws-packages.git
+    directory: oai-cucp-package
+    ref: main
+    commit: db8924d1e9702b4ce9e11b083c188da37c00610d
+info:
+  readinessGates:
+  - conditionType: config.injection.WorkloadCluster.workload-cluster
+  description: example cucp blueprint package
+pipeline:
+  mutators:
+  - image: gcr.io/kpt-fn/apply-replacements:v0.1.1
+    configPath: apply-replacements-owner.yaml
+  - image: gcr.io/kpt-fn/apply-replacements:v0.1.1
+    configPath: apply-replacements-namespace.yaml
+  - image: gcr.io/kpt-fn/set-namespace:v0.4.1
+    configPath: cm-namespace.yaml
+status:
+  conditions:
+  - type: config.injection.WorkloadCluster.workload-cluster
+    status: "False"
+    message: no in-cluster resources of type infra.nephio.org/v1alpha1.WorkloadCluster
+    reason: NoResourceSelected
