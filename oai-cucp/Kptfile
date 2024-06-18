@@ -19,6 +19,8 @@ upstreamLock:
     ref: main
     commit: db8924d1e9702b4ce9e11b083c188da37c00610d
 info:
+  readinessGates:
+  - conditionType: config.injection.WorkloadCluster.workload-cluster
   description: example cucp blueprint package
 pipeline:
   mutators:
@@ -28,3 +30,9 @@ pipeline:
     configPath: apply-replacements-namespace.yaml
   - image: gcr.io/kpt-fn/set-namespace:v0.4.1
     configPath: cm-namespace.yaml
+status:
+  conditions:
+  - type: config.injection.WorkloadCluster.workload-cluster
+    status: "False"
+    message: no in-cluster resources of type infra.nephio.org/v1alpha1.WorkloadCluster
+    reason: NoResourceSelected
