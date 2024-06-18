@@ -2,7 +2,7 @@ apiVersion: k8s.cni.cncf.io/v1
 kind: NetworkAttachmentDefinition
 metadata: # kpt-merge: example/cucp-ran-n2
   name: cucp-ran-n2
-  namespace: example
+  namespace: oai-ran-cucp
   annotations:
     internal.kpt.dev/upstream-identifier: 'k8s.cni.cncf.io|NetworkAttachmentDefinition|example|cucp-ran-n2'
 spec:
@@ -30,7 +30,7 @@ apiVersion: k8s.cni.cncf.io/v1
 kind: NetworkAttachmentDefinition
 metadata: # kpt-merge: example/cucp-ran-f1c
   name: cucp-ran-f1c
-  namespace: example
+  namespace: oai-ran-cucp
   annotations:
     internal.kpt.dev/upstream-identifier: 'k8s.cni.cncf.io|NetworkAttachmentDefinition|example|cucp-ran-f1c'
 spec:
@@ -57,7 +57,7 @@ apiVersion: k8s.cni.cncf.io/v1
 kind: NetworkAttachmentDefinition
 metadata: # kpt-merge: example/cucp-ran-e1
   name: cucp-ran-e1
-  namespace: example
+  namespace: oai-ran-cucp
   annotations:
     internal.kpt.dev/upstream-identifier: 'k8s.cni.cncf.io|NetworkAttachmentDefinition|example|cucp-ran-e1'
 spec:
