@@ -1,0 +1,9 @@
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata: # kpt-merge: example/du-edge-f1
+  name: du-edge-f1
+  namespace: oai-ran-du
+  annotations:
+    internal.kpt.dev/upstream-identifier: 'k8s.cni.cncf.io|NetworkAttachmentDefinition|example|du-edge-f1'
+spec:
+  config: "{\n  \"cniVersion\": \"0.3.1\",\n  \"name\": \"du-edge-f1\",\n  \"plugins\": [\n    {\n      \"type\": \"ipvlan\",\n      \"capabilities\": {\n        \"ips\": true\n      },\n      \"master\": \"ens6\",\n      \"mode\": \"l2\",\n      \"ipam\": {\n        \"type\": \"static\"\n      }\n    }\n  ]\n}            "
