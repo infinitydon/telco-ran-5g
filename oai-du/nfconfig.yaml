@@ -2,7 +2,7 @@ apiVersion: workload.nephio.org/v1alpha1
 kind: NFConfig
 metadata: # kpt-merge: example/oai-du-config
   name: oai-du-config
-  namespace: example
+  namespace: oai-ran-du
   annotations:
     internal.kpt.dev/upstream-identifier: 'workload.nephio.org|NFConfig|example|oai-du-config'
 spec:

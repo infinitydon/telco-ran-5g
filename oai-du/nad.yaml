@@ -2,7 +2,7 @@ apiVersion: k8s.cni.cncf.io/v1
 kind: NetworkAttachmentDefinition
 metadata: # kpt-merge: example/du-edge-f1
   name: du-edge-f1
-  namespace: example
+  namespace: oai-ran-du
   annotations:
     internal.kpt.dev/upstream-identifier: 'k8s.cni.cncf.io|NetworkAttachmentDefinition|example|du-edge-f1'
 spec:
