@@ -1,7 +1,7 @@
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata: # kpt-merge: kyverno/CLUSTER_POLICY_NAME
-  name: CLUSTER_POLICY_NAME # kpt-set: ${core-kyverno-policy-name}
+  name: du-multus-awsipmgt-injection # kpt-set: ${core-kyverno-policy-name}
   namespace: kyverno
   annotations:
     policies.kyverno.io/title: Inject Init-Container
@@ -17,7 +17,7 @@ spec:
       - resources:
           selector:
             matchLabels:
-              app.kubernetes.io/name: POD_LABEL_VALUE # kpt-set: ${ran-kyverno-pod-label-value}
+              app.kubernetes.io/name: oai-gnb-du # kpt-set: ${ran-kyverno-pod-label-value}
           kinds:
           - Pod
           operations:
